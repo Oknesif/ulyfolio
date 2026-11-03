@@ -1,0 +1,498 @@
+/* Kaspersky Marketplace case (Figma node 2022:8440, frame width 950) */
+/* Suisse Screen Trial from the mockup is replaced with Inter */
+
+:root {
+  --content-max: 870px;
+
+  --font-inter: "Inter", system-ui, sans-serif;
+
+  --k-bg: #1b1b22;
+  --k-heading: #fff;
+  --k-label: #d1d1d3;
+  --k-text: #adadaf;
+  --k-muted: #88888c;
+  --k-caption: #a2a2a2;
+  --k-accent: #77c7b8;
+  --k-box-bg: #0d0d15;
+
+  /* Text column is inset 60 px inside the 870 px container (x 100…850 of the frame) */
+  --k-inset: 60px;
+}
+
+body {
+  background: var(--k-bg);
+  color: var(--k-text);
+}
+
+.k-main {
+  font-family: var(--font-inter);
+  /* Green glow (layer "untitled2 1", color dodge pre-composited on the page background).
+     The 1896 px image is centred 53 px left of the page centre, as in the mockup. */
+  background: url("../img/kaspersky/hero-glow.webp") calc(50% - 53px) 0 / 1896px auto no-repeat;
+  padding-bottom: 258.5px;
+}
+
+.k-inner {
+  padding-inline: var(--k-inset);
+}
+
+/* Type */
+
+.k-label {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--k-label);
+}
+
+.k-heading {
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 40px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--k-heading);
+}
+
+.k-lead {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+  color: var(--k-label);
+}
+
+.k-small {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+}
+
+.k-divider {
+  height: 0;
+  margin: 0;
+  border: 0;
+  border-top: 1px solid var(--k-accent);
+}
+
+/* Hero */
+
+.k-hero {
+  padding-top: 116px;
+  color: var(--k-heading);
+}
+
+.k-hero__title {
+  max-width: 788px;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 40px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.k-hero__type {
+  margin-top: 20px;
+  font-size: 36px;
+  line-height: 40px;
+}
+
+.k-hero__audience {
+  font-size: 12px;
+  line-height: 40px;
+  text-transform: uppercase;
+}
+
+/* Task */
+
+.k-task {
+  margin-top: 235px;
+}
+
+.k-task__list {
+  margin-top: 50px;
+}
+
+.k-task__item + .k-task__item {
+  margin-top: 23px;
+}
+
+.k-task__desc {
+  margin-top: 10px;
+  color: var(--k-muted);
+}
+
+.k-task__desc--tall {
+  line-height: 20px;
+}
+
+/* Plan */
+
+.k-plan {
+  margin-top: 92px;
+}
+
+.k-plan__steps {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 30px;
+}
+
+.k-plan__step {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.k-plan__arrow {
+  width: 95px;
+  height: auto;
+}
+
+.k-plan + .k-divider-wrap {
+  margin-top: 79px;
+}
+
+/* Research */
+
+.k-research {
+  display: grid;
+  grid-template-columns: 333fr 417fr;
+  align-items: start;
+  margin-top: 50px;
+}
+
+.k-research__text {
+  margin-top: 36px;
+  line-height: 21.5px;
+}
+
+.k-research__note {
+  margin-top: -6.5px;
+  font-size: 9px;
+  line-height: 26px;
+  letter-spacing: 0.02em;
+  color: var(--k-muted);
+}
+
+.k-objective {
+  min-height: 176px;
+  /* Right padding is 10 px instead of 16: Inter runs ~1.3% wider than Suisse,
+     this keeps the mockup's line breaks */
+  padding: 15px 10px 27px 20px;
+  border-radius: 4px;
+  background: var(--k-box-bg);
+}
+
+.k-objective__text {
+  margin-top: 29.5px;
+  line-height: 22px;
+}
+
+.k-objective__text p + p {
+  margin-top: 22px;
+}
+
+/* Identified issues */
+
+.k-issues {
+  margin-top: 162px;
+}
+
+.k-issues__list {
+  margin-top: 32px;
+  color: var(--k-text);
+}
+
+.k-issues__list li {
+  color: inherit;
+  white-space: nowrap;
+}
+
+.k-issues__list li + li {
+  margin-top: 20px;
+}
+
+.k-issues + .k-divider-wrap {
+  margin-top: 63px;
+}
+
+/* Mockups */
+
+.k-mockups {
+  margin-top: 80px;
+}
+
+.k-mockups__title {
+  margin-top: 10px;
+}
+
+.k-licenses-title {
+  margin-top: 149px;
+}
+
+.k-card-title {
+  margin-top: 120px;
+}
+
+/* Figures: screenshots with callouts */
+
+.k-figure {
+  position: relative;
+}
+
+.k-figure img {
+  height: auto;
+}
+
+.k-figure__img {
+  width: 100%;
+}
+
+.k-figure--marketplace {
+  width: 71.724%;
+  margin: 92px 0 0 14.138%;
+}
+
+.k-figure--details {
+  width: 72.356%;
+  margin: 113.5px 0 0 14.138%;
+}
+
+.k-figure--licenses {
+  width: 92.126%;
+  margin: 42.5px 0 0 5.172%;
+}
+
+.k-figure--card {
+  width: 90.115%;
+  margin: 70.5px 0 0 5.287%;
+}
+
+/* Two overlapping license screens: cards view under the table view */
+.k-shots {
+  position: relative;
+  aspect-ratio: 801.5 / 602;
+}
+
+.k-shot {
+  position: absolute;
+}
+
+.k-shot--cards {
+  left: 0;
+  top: 0;
+  width: 65.565%;
+}
+
+.k-shot--table {
+  left: 31.067%;
+  top: 27.076%;
+  width: 68.933%;
+}
+
+.k-callouts {
+  position: absolute;
+  inset: 0;
+  color: var(--k-caption);
+}
+
+.k-callout {
+  position: absolute;
+  white-space: nowrap;
+}
+
+.k-callout--wrap {
+  white-space: normal;
+}
+
+.k-arrow {
+  position: absolute;
+  max-width: none;
+  transform-origin: center;
+}
+
+/* Positions are measured from the mockup, in % of the screenshot box */
+.k-arrow--top-level { left: -3.068%; top: 16.035%; width: 14.394%; transform: translate(-50%, -50%) rotate(59.36deg); }
+.k-arrow--filter { left: 52.127%; top: 13.504%; width: 5.216%; transform: translate(-50%, -50%) rotate(59.36deg); }
+.k-arrow--card-state { left: 85.627%; top: 76.374%; width: 6.962%; transform: translate(-50%, -50%) rotate(114.25deg); }
+.k-arrow--details { left: 2.54%; top: 16.91%; width: 25.922%; transform: translate(-50%, -50%) rotate(59.36deg); }
+.k-arrow--views { left: 68.289%; top: 17.866%; width: 2.029%; transform: translate(-50%, -50%) rotate(59.36deg); }
+.k-arrow--storage { left: 41.465%; top: 56.908%; width: 25.323%; transform: translate(-50%, -50%) rotate(-33.46deg); }
+.k-arrow--name { left: 2%; top: 9.758%; width: 13.495%; transform: translate(-50%, -50%) rotate(59.36deg); }
+.k-arrow--consistent { left: 74.024%; top: 12.534%; width: 6.764%; transform: translate(-50%, -50%) rotate(59.36deg); }
+.k-arrow--license-details { left: 7.767%; top: 60.516%; width: 12.155%; transform: translate(-50%, -50%) rotate(-18.15deg); }
+.k-arrow--contents { left: 27.138%; top: 104.258%; width: 4.306%; transform: translate(-50%, -50%) rotate(-53.52deg); }
+
+.k-callout--top-level { left: -15.946%; top: -4.353%; }
+.k-callout--filter { left: 53.285%; top: -6.964%; }
+.k-callout--card-state { left: 89.904%; top: 63.33%; }
+.k-callout--details { left: -16.203%; top: -13.67%; }
+.k-callout--views { left: 65.565%; top: -2.409%; }
+.k-callout--storage { left: 1.061%; top: 71.844%; width: 254px; }
+.k-callout--name { left: -4.273%; top: -7.448%; }
+.k-callout--consistent { left: 70.536%; top: -11.42%; width: 292px; }
+.k-callout--license-details { left: -6.76%; top: 69.315%; }
+.k-callout--contents { left: 34.311%; top: 100.596%; width: 372.5px; }
+
+/* Narrower than the 950 px mockup: no arrows, captions listed under the screenshot */
+
+@media (max-width: 949px) {
+  :root {
+    --k-inset: 0px;
+  }
+
+  .k-main {
+    padding-bottom: 120px;
+  }
+
+  .k-lead {
+    line-height: 24px;
+  }
+
+  .k-issues__list li {
+    white-space: normal;
+  }
+
+  .k-issues__list li + li {
+    margin-top: 12px;
+  }
+
+  .k-figure--marketplace,
+  .k-figure--details,
+  .k-figure--licenses,
+  .k-figure--card {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .k-figure--marketplace,
+  .k-figure--licenses,
+  .k-figure--card {
+    margin-top: 40px;
+  }
+
+  .k-figure--details {
+    margin-top: 56px;
+  }
+
+  .k-licenses-title,
+  .k-card-title {
+    margin-top: 96px;
+  }
+
+  .k-arrow {
+    display: none;
+  }
+
+  .k-callouts {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .k-callout,
+  .k-callout[class*="k-callout--"] {
+    position: static;
+    width: auto;
+    white-space: normal;
+  }
+
+  .k-callout br {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .k-hero {
+    padding-top: 64px;
+  }
+
+  .k-hero__title,
+  .k-heading {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .k-hero__type {
+    margin-top: 16px;
+    font-size: 28px;
+  }
+
+  .k-task {
+    margin-top: 120px;
+  }
+
+  .k-task__list {
+    margin-top: 40px;
+  }
+
+  .k-plan {
+    margin-top: 72px;
+  }
+
+  /* Plan steps wrap into two rows with shorter arrows */
+  .k-plan__steps {
+    flex-wrap: wrap;
+    gap: 16px 12px;
+  }
+
+  .k-plan__step {
+    gap: 12px;
+  }
+
+  .k-plan__arrow {
+    width: 64px;
+  }
+
+  .k-plan + .k-divider-wrap {
+    margin-top: 56px;
+  }
+
+  .k-research {
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+    margin-top: 48px;
+  }
+
+  .k-issues {
+    margin-top: 72px;
+  }
+
+  .k-issues + .k-divider-wrap {
+    margin-top: 56px;
+  }
+
+  .k-mockups {
+    margin-top: 56px;
+  }
+
+  /* Overlapping license screens are stacked one under another */
+  .k-shots {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    aspect-ratio: auto;
+  }
+
+  .k-shot,
+  .k-shot--cards,
+  .k-shot--table {
+    position: static;
+    width: 100%;
+  }
+
+  .k-licenses-title,
+  .k-card-title {
+    margin-top: 72px;
+  }
+
+  .k-main {
+    padding-bottom: 96px;
+  }
+}

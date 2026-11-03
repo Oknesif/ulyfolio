@@ -1,0 +1,370 @@
+/* Home page (Figma node 2101:50179, frame width 1280) */
+
+:root {
+  --content-max: 1200px;
+
+  --home-hero-gradient: linear-gradient(136.73deg, #d3f8ff 0%, #e0e1fe 51.671%, #f1d6ff 103.43%);
+  --home-ozon-link: #0c39d7;
+  --home-kaspersky-text: #d7d7d7;
+  --home-kaspersky-accent: #fbfbfb;
+  --home-kaspersky-link: #22e0bd;
+  --home-kaspersky-bg: #1c1d22;
+  --home-about-bg: #dceaff;
+}
+
+/* Hero */
+
+.hero {
+  /* In the mockup the gradient box is 2221 px wide and shifted 25.5 px right of the page centre */
+  background: var(--home-hero-gradient) calc(50% + 25.5px) 0 / 2221px 100% no-repeat;
+  background-color: #e0e1fe;
+  /* 69 (header offset) + 24 (header) + 140 (gap) */
+  padding-block: 233px 61px;
+}
+
+@media (min-width: 2222px) {
+  .hero {
+    background-size: 100% 100%;
+    background-position: 0 0;
+  }
+}
+
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+.hero__title {
+  font-family: var(--font-montserrat);
+  font-weight: 700;
+  font-size: 96px;
+  line-height: normal;
+}
+
+.hero__slogan {
+  max-width: 791px;
+  font-family: var(--font-lora);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 52px;
+}
+
+.hero__bio {
+  max-width: 486px;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+/* Case cards */
+
+.case__inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.case__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.case__info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.case__title {
+  font-family: var(--font-montserrat);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: normal;
+}
+
+.case__desc {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.case__metrics {
+  display: flex;
+  font-family: var(--font-lora);
+  font-style: italic;
+  white-space: nowrap;
+}
+
+.case__metrics li {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 16px;
+}
+
+.case__metrics li:not(:last-child) {
+  width: 203px;
+}
+
+.metric__value {
+  font-size: 32px;
+  line-height: 40px;
+}
+
+.metric__label {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.case__role {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.case__role b {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.case__link {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-position: from-font;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+}
+
+.case__link:hover {
+  opacity: 0.7;
+}
+
+/* OZON */
+
+.case--ozon {
+  padding-block: 79px 60px;
+}
+
+.case--ozon .case__inner {
+  gap: 80px;
+  min-height: 493px;
+}
+
+.case--ozon .case__text {
+  flex: 0 1 487px;
+}
+
+.case--ozon .case__link {
+  color: var(--home-ozon-link);
+}
+
+.case--ozon .case__media {
+  flex: 0 1 590px;
+}
+
+.case--ozon .case__media img {
+  /* 686 px wide, sticks out 64 px left and 32 px right of the 590 px frame */
+  width: 116.27%;
+  max-width: none;
+  height: auto;
+  /* Starts 67 px below the card top (percentages of the 590 px frame) */
+  margin: 11.36% 0 0 -10.85%;
+}
+
+/* Kaspersky: dark strip across the whole screen */
+
+.case--kaspersky {
+  min-height: 692px;
+  padding-block: 80px 64px;
+  color: var(--home-kaspersky-text);
+  /* Strip centre is 48 px left of the page centre in the mockup */
+  background: var(--home-kaspersky-bg) url("../img/home/kaspersky-bg.webp") calc(50% - 48px) 0 / cover no-repeat;
+}
+
+.case--kaspersky .case__inner {
+  gap: 40px;
+}
+
+.case--kaspersky .case__text {
+  flex: 0 1 488px;
+}
+
+.case--kaspersky .case__role b {
+  color: var(--home-kaspersky-accent);
+}
+
+.case--kaspersky .case__link {
+  color: var(--home-kaspersky-link);
+}
+
+.laptop {
+  position: relative;
+  flex: 0 1 622px;
+  margin-top: 69.5px;
+}
+
+.laptop__image {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.laptop__shadow {
+  position: absolute;
+  left: -1.852%;
+  top: 69.53%;
+  width: 97.185%;
+  max-width: none;
+  height: auto;
+}
+
+/* About */
+
+.about {
+  background: var(--home-about-bg);
+  padding-block: 106px 175px;
+  /* White 5 px gap before the footer, as in the mockup (see BACKLOG.md) */
+  margin-bottom: 5px;
+}
+
+.about__inner {
+  display: flex;
+  gap: 20px;
+}
+
+.about__title,
+.about__text {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.about__title {
+  font-family: var(--font-montserrat);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: normal;
+}
+
+.about__text {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.about__text p + p {
+  margin-top: 28px;
+}
+
+/* Tablet and phone: case cards become one column */
+
+@media (max-width: 1023px) {
+  .case__inner,
+  .case--ozon .case__inner,
+  .case--kaspersky .case__inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 48px;
+  }
+
+  .case--ozon .case__text,
+  .case--kaspersky .case__text {
+    flex: none;
+    max-width: 590px;
+  }
+
+  .case--ozon .case__inner {
+    min-height: 0;
+  }
+
+  .case--ozon .case__media {
+    flex: none;
+    width: 100%;
+    max-width: 686px;
+    margin-inline: auto;
+  }
+
+  .case--ozon .case__media img {
+    width: 100%;
+    margin: 0;
+  }
+
+  .case--kaspersky {
+    min-height: 0;
+    padding-bottom: 80px;
+  }
+
+  .laptop {
+    flex: none;
+    width: 100%;
+    max-width: 622px;
+    margin: 0 auto 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    background-size: 100% 100%;
+    background-position: 0 0;
+    padding-block: 120px 48px;
+  }
+
+  .hero__inner {
+    gap: 32px;
+  }
+
+  .hero__title {
+    font-size: 40px;
+  }
+
+  .hero__slogan {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .hero__bio,
+  .case__desc,
+  .about__text {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .about__text p + p {
+    margin-top: 26px;
+  }
+
+  .case__title,
+  .about__title {
+    font-size: 32px;
+  }
+
+  .case__link {
+    font-size: 20px;
+  }
+
+  .case--ozon {
+    padding-block: 56px;
+  }
+
+  .case--kaspersky {
+    padding-block: 56px 48px;
+  }
+
+  .about {
+    padding-block: 64px 80px;
+  }
+
+  .about__inner {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero__title {
+    font-size: 80px;
+  }
+}
