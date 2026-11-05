@@ -61,9 +61,11 @@ body {
   color: var(--k-label);
 }
 
+/* Small text is 1.25x the mockup (12/16 -> 15/20), the 9 px note is 11 px:
+   the designer asked to enlarge it proportionally, 9 px was too small */
 .k-small {
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 15px;
+  line-height: 20px;
   letter-spacing: 0.02em;
 }
 
@@ -97,7 +99,7 @@ body {
 }
 
 .k-hero__audience {
-  font-size: 12px;
+  font-size: 15px;
   line-height: 40px;
   text-transform: uppercase;
 }
@@ -122,7 +124,7 @@ body {
 }
 
 .k-task__desc--tall {
-  line-height: 20px;
+  line-height: 25px;
 }
 
 /* Plan */
@@ -164,13 +166,13 @@ body {
 
 .k-research__text {
   margin-top: 36px;
-  line-height: 21.5px;
+  line-height: 27px;
 }
 
 .k-research__note {
-  margin-top: -6.5px;
-  font-size: 9px;
-  line-height: 26px;
+  margin-top: -8px;
+  font-size: 11px;
+  line-height: 32px;
   letter-spacing: 0.02em;
   color: var(--k-muted);
 }
@@ -184,11 +186,11 @@ body {
 
 .k-objective__text {
   margin-top: 29.5px;
-  line-height: 22px;
+  line-height: 27.5px;
 }
 
 .k-objective__text p + p {
-  margin-top: 22px;
+  margin-top: 27.5px;
 }
 
 /* Identified issues */
@@ -347,21 +349,25 @@ body {
 .k-marker--license-details { left: 12.24%; top: 52.58%; }
 .k-marker--contents { left: 24.03%; top: 91%; }
 
+/* views and consistent are moved up by the extra height of the enlarged text (20 and 32 px),
+   so their bottom edge stays where the arrow starts */
 .k-callout--top-level { left: -15.946%; top: -4.353%; }
 .k-callout--filter { left: 53.285%; top: -6.964%; }
 .k-callout--card-state { left: 89.904%; top: 63.33%; }
 .k-callout--details { left: -16.203%; top: -13.67%; }
-.k-callout--views { left: 65.565%; top: -2.409%; }
+.k-callout--views { left: 65.565%; top: -5.731%; }
 .k-callout--storage { left: 1.061%; top: 71.844%; width: 254px; }
 .k-callout--name { left: -4.273%; top: -7.448%; }
-.k-callout--consistent { left: 70.536%; top: -11.42%; width: 292px; }
+.k-callout--consistent { left: 70.536%; top: -17.77%; width: 292px; }
 .k-callout--license-details { left: -6.76%; top: 69.315%; }
 .k-callout--contents { left: 34.311%; top: 100.596%; width: 372.5px; }
 
-/* Narrower than the 950 px mockup: arrows are replaced with numbered markers,
-   captions are listed under the screenshot with the same numbers */
+/* Below the desktop breakpoint: arrows are replaced with numbered markers,
+   captions are listed under the screenshot with the same numbers.
+   (With the enlarged captions the arrow layout needs at least 1024 px: at 950 px
+   the Marketplace caption on the right runs off the screen.) */
 
-@media (max-width: 949px) {
+@media (max-width: 1023px) {
   .k-main {
     padding-bottom: 120px;
   }
@@ -435,7 +441,7 @@ body {
   .k-num {
     position: absolute;
     left: 0;
-    top: -2px;
+    top: 0;
   }
 
   .k-callouts {
