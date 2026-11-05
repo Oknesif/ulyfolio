@@ -228,8 +228,6 @@
 .about {
   background: var(--home-about-bg);
   padding-block: 106px 175px;
-  /* White 5 px gap before the footer, as in the mockup (see BACKLOG.md) */
-  margin-bottom: 5px;
 }
 
 .about__inner {
