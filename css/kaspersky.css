@@ -15,8 +15,9 @@
   --k-accent: #77c7b8;
   --k-box-bg: #0d0d15;
 
-  /* Text column is inset 60 px inside the 870 px container (x 100…850 of the frame) */
-  --k-inset: 60px;
+  /* Screenshots have a soft shadow baked into the file: ~3.53% of the image width on each side,
+     i.e. 3.79% of the visible screenshot. Used to line the visible edge up with the text. */
+  --k-shot-shadow: 3.79%;
 }
 
 body {
@@ -30,10 +31,6 @@ body {
      The 1896 px image is centred 53 px left of the page centre, as in the mockup. */
   background: url("../img/kaspersky/hero-glow.webp") calc(50% - 53px) 0 / 1896px auto no-repeat;
   padding-bottom: 258.5px;
-}
-
-.k-inner {
-  padding-inline: var(--k-inset);
 }
 
 /* Type */
@@ -180,9 +177,7 @@ body {
 
 .k-objective {
   min-height: 176px;
-  /* Right padding is 10 px instead of 16: Inter runs ~1.3% wider than Suisse,
-     this keeps the mockup's line breaks */
-  padding: 15px 10px 27px 20px;
+  padding: 15px 16px 27px 20px;
   border-radius: 4px;
   background: var(--k-box-bg);
 }
@@ -248,7 +243,14 @@ body {
   height: auto;
 }
 
-.k-figure__img {
+/* Each screenshot is a link to the full-size file (zoomable on a phone) */
+.k-frame {
+  display: block;
+  position: relative;
+  cursor: zoom-in;
+}
+
+.k-frame img {
   width: 100%;
 }
 
@@ -327,6 +329,24 @@ body {
 .k-arrow--license-details { left: 7.767%; top: 60.516%; width: 12.155%; transform: translate(-50%, -50%) rotate(-18.15deg); }
 .k-arrow--contents { left: 27.138%; top: 104.258%; width: 4.306%; transform: translate(-50%, -50%) rotate(-53.52deg); }
 
+/* Numbered markers replace the arrows on narrow screens. Each sits where its arrow points,
+   in % of the screenshot (for the license screens, of that screen). */
+.k-marker,
+.k-num {
+  display: none;
+}
+
+.k-marker--top-level { left: 2.88%; top: 22.17%; }
+.k-marker--filter { left: 43.27%; top: 20.43%; }
+.k-marker--card-state { left: 72.6%; top: 68.48%; }
+.k-marker--details { left: 11.8%; top: 30.3%; }
+.k-marker--views { left: 96.7%; top: 19.5%; }
+.k-marker--storage { left: 24.4%; top: 18%; }
+.k-marker--name { left: 7.65%; top: 16.87%; }
+.k-marker--consistent { left: 67.86%; top: 21.5%; }
+.k-marker--license-details { left: 12.24%; top: 52.58%; }
+.k-marker--contents { left: 24.03%; top: 91%; }
+
 .k-callout--top-level { left: -15.946%; top: -4.353%; }
 .k-callout--filter { left: 53.285%; top: -6.964%; }
 .k-callout--card-state { left: 89.904%; top: 63.33%; }
@@ -338,13 +358,10 @@ body {
 .k-callout--license-details { left: -6.76%; top: 69.315%; }
 .k-callout--contents { left: 34.311%; top: 100.596%; width: 372.5px; }
 
-/* Narrower than the 950 px mockup: no arrows, captions listed under the screenshot */
+/* Narrower than the 950 px mockup: arrows are replaced with numbered markers,
+   captions are listed under the screenshot with the same numbers */
 
 @media (max-width: 949px) {
-  :root {
-    --k-inset: 0px;
-  }
-
   .k-main {
     padding-bottom: 120px;
   }
@@ -388,6 +405,39 @@ body {
     display: none;
   }
 
+  /* The visible screenshot (without its baked-in shadow) is as wide as the text */
+  .k-figure > .k-frame {
+    margin: calc(-1 * var(--k-shot-shadow));
+  }
+
+  .k-marker,
+  .k-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--k-accent);
+    color: var(--k-box-bg);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  .k-marker {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 0 2px var(--k-bg);
+  }
+
+  .k-num {
+    position: absolute;
+    left: 0;
+    top: -2px;
+  }
+
   .k-callouts {
     position: static;
     display: flex;
@@ -398,8 +448,11 @@ body {
 
   .k-callout,
   .k-callout[class*="k-callout--"] {
-    position: static;
+    position: relative;
+    left: auto;
+    top: auto;
     width: auto;
+    padding-left: 28px;
     white-space: normal;
   }
 
@@ -483,8 +536,10 @@ body {
   .k-shot,
   .k-shot--cards,
   .k-shot--table {
-    position: static;
-    width: 100%;
+    position: relative;
+    inset: auto;
+    width: auto;
+    margin: calc(-1 * var(--k-shot-shadow));
   }
 
   .k-licenses-title,
